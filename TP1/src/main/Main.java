@@ -12,7 +12,7 @@ import glouton.obj.services.RandomTSP.DisplayEdgeWeightSection;
 import glouton.obj.services.RandomTSP.Evaluate;
 import glouton.obj.services.RandomTSP.NearestNeighborAlgorithm;
 import glouton.obj.services.RandomTSP.NearestNeighborAlgorithm.NearestNeighborAlgorithmResult;
-import neighbor.obj.services.RandomTSP.Swaping;
+import hillclimbing.obj.services.RandomTSP.Swaping;
 import glouton.obj.services.RandomTSP.ReadFile;
 
 public class Main {

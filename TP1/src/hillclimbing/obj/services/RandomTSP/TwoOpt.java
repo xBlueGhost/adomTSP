@@ -1,4 +1,4 @@
-package neighbor.obj.services.RandomTSP;
+package hillclimbing.obj.services.RandomTSP;
 
 import java.util.ArrayList;
 import java.util.Collections;
