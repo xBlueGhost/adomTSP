@@ -13,7 +13,7 @@ import glouton.obj.services.RandomTSP.NearestNeighborAlgorithm;
 import utils.Method;
 import glouton.obj.services.RandomTSP.ReadFile;
 
-public class Main {
+public class MainTP1 {
 
 	/**
 	 * Best result <br>
