@@ -1,6 +1,8 @@
 package glouton.obj.services.RandomTSP;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -78,5 +80,6 @@ public class Evaluate {
 			ar[i] = a;
 		}
 	}
+	
 
 }

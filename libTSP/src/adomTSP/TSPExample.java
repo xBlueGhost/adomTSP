@@ -15,14 +15,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane; 
 import javax.swing.JTextArea; 
  
-import org.moeaframework.core.Algorithm; 
-import org.moeaframework.core.EvolutionaryAlgorithm; 
-import org.moeaframework.core.Problem; 
-import org.moeaframework.core.Settings; 
-import org.moeaframework.core.Solution; 
-import org.moeaframework.core.spi.AlgorithmFactory; 
-import org.moeaframework.core.variable.EncodingUtils; 
-import org.moeaframework.problem.AbstractProblem; 
  
 /**
  * Demonstration of optimizing a TSP problem using the MOEA Framework 

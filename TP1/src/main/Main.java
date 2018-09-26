@@ -1,6 +1,7 @@
 package main;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -11,6 +12,7 @@ import glouton.obj.services.RandomTSP.DisplayEdgeWeightSection;
 import glouton.obj.services.RandomTSP.Evaluate;
 import glouton.obj.services.RandomTSP.NearestNeighborAlgorithm;
 import glouton.obj.services.RandomTSP.NearestNeighborAlgorithm.NearestNeighborAlgorithmResult;
+import neighbor.obj.services.RandomTSP.Swaping;
 import glouton.obj.services.RandomTSP.ReadFile;
 
 public class Main {
@@ -85,6 +87,10 @@ public class Main {
 		}
 
 		System.out.println("------------------------------------------------------------");
+		
+		System.out.println("Question TD2 - 2");
+
+		
 	}
 
 	private static int getRandomNumberInRange(int min, int max) {
