@@ -1,13 +1,10 @@
 package glouton.obj.services.RandomTSP;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 import glouton.exception.RandomTSPException;
 import glouton.obj.RandomTSP;
+import utils.Method;
 
 public class Evaluate {
 
@@ -62,24 +59,10 @@ public class Evaluate {
 		System.out.println("[INFO] : Cities length = " + cities.length);
 		System.out.println("[INFO] : Cities = " + Arrays.toString(cities));
 		System.out.println("[INFO] : Shuffling cities...");
-		shuffleArray(cities);
+		Method.shuffleArray(cities);
 		System.out.println("[INFO] : Cities shuffled.");
 		System.out.println("[INFO] : Cities = " + Arrays.toString(cities));
 		return eval(rTSP, cities);
 	}
-
-	// Implementing Fisher–Yates shuffle
-	private static void shuffleArray(int[] ar) {
-		// If running on Java 6 or older, use `new Random()` on RHS here
-		Random rnd = ThreadLocalRandom.current();
-		for (int i = ar.length - 1; i > 0; i--) {
-			int index = rnd.nextInt(i + 1);
-			// Simple swap
-			int a = ar[index];
-			ar[index] = ar[i];
-			ar[i] = a;
-		}
-	}
-	
 
 }

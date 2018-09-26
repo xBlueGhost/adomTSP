@@ -1,18 +1,16 @@
 package main;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
-import glouton.exception.NearestNeighborAlgorithmException;
+import glouton.exception.ConstructiveHeuristicsAlgorithmException;
 import glouton.exception.RandomTSPException;
+import glouton.obj.ConstructiveHeuristicsAlgorithmResult;
 import glouton.obj.RandomTSP;
 import glouton.obj.services.RandomTSP.DisplayEdgeWeightSection;
 import glouton.obj.services.RandomTSP.Evaluate;
 import glouton.obj.services.RandomTSP.NearestNeighborAlgorithm;
-import glouton.obj.services.RandomTSP.NearestNeighborAlgorithm.NearestNeighborAlgorithmResult;
-import hillclimbing.obj.services.RandomTSP.Swaping;
+import utils.Method;
 import glouton.obj.services.RandomTSP.ReadFile;
 
 public class Main {
@@ -60,29 +58,30 @@ public class Main {
 
 		System.out.println("------------------------------------------------------------");
 		System.out.println("Question 3.1");
+		NearestNeighborAlgorithm nna = new NearestNeighborAlgorithm();
 		try {
-			NearestNeighborAlgorithmResult res1 = NearestNeighborAlgorithm.doAlgorithm(a, 0);
+			ConstructiveHeuristicsAlgorithmResult res1 = nna.doAlgorithm(a, 0);
 			System.out.println("NearestNeighborAlgo file:randomA100.tsp beginAt:0");
 			System.out.println("Path = " + Arrays.toString(res1.getPath()));
 			System.out.println("Cost = " + res1.getCost());
-			NearestNeighborAlgorithmResult res2 = NearestNeighborAlgorithm.doAlgorithm(a, 10);
+			ConstructiveHeuristicsAlgorithmResult res2 = nna.doAlgorithm(a, 10);
 			System.out.println("NearestNeighborAlgo file:randomA100.tsp beginAt:10");
 			System.out.println("Path = " + Arrays.toString(res2.getPath()));
 			System.out.println("Cost = " + res2.getCost());
-			NearestNeighborAlgorithmResult res3 = NearestNeighborAlgorithm.doAlgorithm(a, 50);
+			ConstructiveHeuristicsAlgorithmResult res3 = nna.doAlgorithm(a, 50);
 			System.out.println("NearestNeighborAlgo file:randomA100.tsp beginAt:50");
 			System.out.println("Path = " + Arrays.toString(res3.getPath()));
 			System.out.println("Cost = " + res3.getCost());
-			NearestNeighborAlgorithmResult res4 = NearestNeighborAlgorithm.doAlgorithm(a, 75);
+			ConstructiveHeuristicsAlgorithmResult res4 = nna.doAlgorithm(a, 75);
 			System.out.println("NearestNeighborAlgo file:randomA100.tsp beginAt:75");
 			System.out.println("Path = " + Arrays.toString(res4.getPath()));
 			System.out.println("Cost = " + res4.getCost());
-			int rand = getRandomNumberInRange(0, 99);
-			NearestNeighborAlgorithmResult res5 = NearestNeighborAlgorithm.doAlgorithm(a, rand);
+			int rand = Method.getRandomNumberInRange(0, 99);
+			ConstructiveHeuristicsAlgorithmResult res5 = nna.doAlgorithm(a, rand);
 			System.out.println("NearestNeighborAlgo file:randomA100.tsp beginAt:" + rand);
 			System.out.println("Path = " + Arrays.toString(res5.getPath()));
 			System.out.println("Cost = " + res5.getCost());
-		} catch (NearestNeighborAlgorithmException e) {
+		} catch (ConstructiveHeuristicsAlgorithmException e) {
 			e.printStackTrace();
 		}
 
@@ -91,16 +90,6 @@ public class Main {
 		System.out.println("Question TD2 - 2");
 
 		
-	}
-
-	private static int getRandomNumberInRange(int min, int max) {
-
-		if (min >= max) {
-			throw new IllegalArgumentException("max must be greater than min");
-		}
-
-		Random r = new Random();
-		return r.nextInt((max - min) + 1) + min;
 	}
 
 }
