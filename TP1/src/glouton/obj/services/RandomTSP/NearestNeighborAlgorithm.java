@@ -1,7 +1,7 @@
 package glouton.obj.services.RandomTSP;
 
 import glouton.exception.ConstructiveHeuristicsAlgorithmException;
-import glouton.obj.ConstructiveHeuristicsAlgorithmResult;
+import glouton.obj.TSPResult;
 import glouton.obj.RandomTSP;
 
 public class NearestNeighborAlgorithm implements ConstructiveHeuristicsAlgorithm{
@@ -13,7 +13,7 @@ public class NearestNeighborAlgorithm implements ConstructiveHeuristicsAlgorithm
 	 * rapport à une solution aléatoire ? Le choix de la ville initiale a-t-il un
 	 * impact sur les résultats obtenus ?
 	 */
-	public ConstructiveHeuristicsAlgorithmResult doAlgorithm(RandomTSP rTSP, int beginAt)
+	public TSPResult doAlgorithm(RandomTSP rTSP, int beginAt)
 			throws ConstructiveHeuristicsAlgorithmException {
 		if (beginAt > rTSP.getDimension() - 1) {
 			throw new ConstructiveHeuristicsAlgorithmException("beginAt can't be superior to the RandomTSP dimension.");
@@ -51,6 +51,6 @@ public class NearestNeighborAlgorithm implements ConstructiveHeuristicsAlgorithm
 			finalResult = finalResult + result;
 			result = 0;
 		}
-		return new ConstructiveHeuristicsAlgorithmResult(path, finalResult);
+		return new TSPResult(path, finalResult);
 	}
 }

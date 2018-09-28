@@ -1,11 +1,11 @@
 package glouton.obj;
 
-public class ConstructiveHeuristicsAlgorithmResult {
+public class TSPResult {
 
 	private int[] path;
 	private Integer cost;
 
-	public ConstructiveHeuristicsAlgorithmResult(int[] path, Integer cost) {
+	public TSPResult(int[] path, Integer cost) {
 		super();
 		this.path = path;
 		this.cost = cost;
