@@ -17,13 +17,13 @@ public class ConstructiveHeuristicPopulation implements PopulationInitialization
 	}
 
 	@Override
-	public List<int[]> initPopulation(int size, int sizePath) throws PopulationInitializationException {
+	public List<int[]> initPopulation(int sizePop, int sizePath) throws PopulationInitializationException {
 		List<int[]> result = new ArrayList<>();
-		if(size>init.getrTSP().getDimension()) {
+		if(sizePop>init.getrTSP().getDimension()) {
 			throw new PopulationInitializationException("Population size cannot be over RandomTSP dimension.");
 		} else {
-			for (int i = 0; i < size; i++) {
-				int rand = Method.getRandomNumberInRange(0, size);
+			for (int i = 0; i < sizePop; i++) {
+				int rand = Method.getRandomNumberInRange(0, sizePop-1);
 				int[] tmp = init.initPathAsArray(rand);
 				if(!result.contains(tmp)) {
 					result.add(tmp);

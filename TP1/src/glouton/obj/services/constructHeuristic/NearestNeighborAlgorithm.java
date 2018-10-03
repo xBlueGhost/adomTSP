@@ -1,4 +1,4 @@
-package glouton.obj.services.RandomTSP;
+package glouton.obj.services.constructHeuristic;
 
 import glouton.exception.ConstructiveHeuristicsAlgorithmException;
 import glouton.obj.TSPResult;

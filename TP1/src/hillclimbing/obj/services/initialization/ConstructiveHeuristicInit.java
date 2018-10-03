@@ -4,7 +4,7 @@ import java.util.List;
 
 import glouton.exception.ConstructiveHeuristicsAlgorithmException;
 import glouton.obj.RandomTSP;
-import glouton.obj.services.RandomTSP.ConstructiveHeuristicsAlgorithm;
+import glouton.obj.services.constructHeuristic.ConstructiveHeuristicsAlgorithm;
 
 public class ConstructiveHeuristicInit implements Initialization {
 

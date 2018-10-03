@@ -9,9 +9,9 @@ import glouton.obj.RandomTSP;
 import glouton.obj.TSPResult;
 import glouton.obj.services.RandomTSP.DisplayEdgeWeightSection;
 import glouton.obj.services.RandomTSP.Evaluate;
-import glouton.obj.services.RandomTSP.NearestNeighborAlgorithm;
 import utils.Method;
 import glouton.obj.services.RandomTSP.ReadFile;
+import glouton.obj.services.constructHeuristic.NearestNeighborAlgorithm;
 
 public class MainTP1 {
 

@@ -6,6 +6,6 @@ import memetic.exception.PopulationInitializationException;
 
 public interface PopulationInitialization {
 
-	public List<int[]> initPopulation(int size, int sizePath) throws PopulationInitializationException;
+	public List<int[]> initPopulation(int sizePop, int sizePath) throws PopulationInitializationException;
 	
 }
