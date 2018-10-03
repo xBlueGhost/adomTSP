@@ -3,8 +3,9 @@ package memetic.obj.services.mutation;
 import hillclimbing.obj.services.neighborhood.Swaping;
 import utils.Method;
 
-public class SwapMutation {
+public class SwapMutation implements Mutation {
 
+	@Override
 	public int[] doMutation(int[] path) {
 		int index1 = 0, index2 = 0;
 		while(index1 == index2) {
