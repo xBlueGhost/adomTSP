@@ -35,4 +35,20 @@ public class ConstructiveHeuristicInit implements Initialization {
 		return null;
 	}
 
+	public ConstructiveHeuristicsAlgorithm getCha() {
+		return cha;
+	}
+
+	public void setCha(ConstructiveHeuristicsAlgorithm cha) {
+		this.cha = cha;
+	}
+
+	public RandomTSP getrTSP() {
+		return rTSP;
+	}
+
+	public void setrTSP(RandomTSP rTSP) {
+		this.rTSP = rTSP;
+	}
+
 }
