@@ -45,6 +45,7 @@ public class MemeticAlgorithm {
 			}
 			int[] e = crossover.doCrossover(rand3, rand4, p1, p2);
 			//TODO hillClimbing to e
+			//TODO insert e in population
 		} catch (PopulationInitializationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
