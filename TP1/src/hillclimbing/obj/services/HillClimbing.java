@@ -25,8 +25,39 @@ public class HillClimbing {
 		this.rTSP = rTSP;
 	}
 	
-	public TSPResult doAlgo(int init) {
-		int[] initPath = initialization.initPathAsArray(init);
+	public Initialization getInitialization() {
+		return initialization;
+	}
+
+	public void setInitialization(Initialization initialization) {
+		this.initialization = initialization;
+	}
+
+	public Neighborhood getNeighborhood() {
+		return neighborhood;
+	}
+
+	public void setNeighborhood(Neighborhood neighborhood) {
+		this.neighborhood = neighborhood;
+	}
+
+	public Move getMove() {
+		return move;
+	}
+
+	public void setMove(Move move) {
+		this.move = move;
+	}
+
+	public RandomTSP getrTSP() {
+		return rTSP;
+	}
+
+	public void setrTSP(RandomTSP rTSP) {
+		this.rTSP = rTSP;
+	}
+
+	public TSPResult doAlgo(int[] initPath) {
 		TSPResult initResult = null;
 		try {
 			initResult = new TSPResult(initPath, Evaluate.eval(rTSP, initPath));
@@ -45,6 +76,11 @@ public class HillClimbing {
 			}
 		}
 		return initResult;
+	}
+	
+	public TSPResult doAlgo(int init) {
+		int[] initPath = initialization.initPathAsArray(init);
+		return doAlgo(initPath);
 	}
 	
 }
