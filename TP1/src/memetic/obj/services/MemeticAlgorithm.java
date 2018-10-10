@@ -44,7 +44,7 @@ public class MemeticAlgorithm {
 			List<int[]> population = popInit.initPopulation(sizePop, rTSP.getDimension());
 
 			int i = 0;
-			while (i <= 10000 || noNewGeneration == currentNoNewGeneration) {
+			while (i <= 1000 || noNewGeneration == currentNoNewGeneration) {
 				// choose p1 p2
 				int[][] ps = bestParents(population);
 				int[] p1 = ps[0];
