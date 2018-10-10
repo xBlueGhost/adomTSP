@@ -69,7 +69,7 @@ public class HillClimbing {
 		while(true) {
 			neighbor = neighborhood.getNeighborhood(initResult.getPath());
 			TSPResult result = move.doMove(neighbor);
-			if (result.getCost() < initResult.getCost()) {
+			if (result.getCost() > initResult.getCost()) {
 				break;
 			} else {
 				initResult = result;

@@ -36,8 +36,8 @@ public class Evaluate {
 
 			}
 		}
-		System.out.println(
-				"Evaluation for file " + rTSP.getFileName() + " with " + Arrays.toString(cities) + " = " + result);
+		//System.out.println(
+		//		"Evaluation for file " + rTSP.getFileName() + " with " + Arrays.toString(cities) + " = " + result);
 		return result;
 	}
 
