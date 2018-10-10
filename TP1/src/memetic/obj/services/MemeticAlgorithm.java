@@ -20,10 +20,20 @@ public class MemeticAlgorithm {
 	private HillClimbing hillClimbing;
 	private RandomTSP rTSP;
 
-	public MemeticAlgorithm(PopulationInitialization popInit, Crossover crossover) {
+	public MemeticAlgorithm(PopulationInitialization popInit, Crossover crossover, RandomTSP rTSP) {
 		super();
 		this.popInit = popInit;
 		this.crossover = crossover;
+		this.rTSP = rTSP;
+	}
+	
+	public void setHillClimbing(HillClimbing hillClimbing) {
+		if(rTSP.equals(hillClimbing.getrTSP())) {
+			this.hillClimbing = hillClimbing;
+		} else {
+			System.out.println("RandomTSP of MemeticAlgorithm need to be the same of the RandomTSP of HillClimbing.");
+			//TODO exception
+		}
 	}
 
 	public TSPResult doAlgo(int sizePop) throws RandomTSPException {
@@ -31,7 +41,7 @@ public class MemeticAlgorithm {
 			int noNewGeneration = 25;
 			int currentNoNewGeneration = 0;
 			// init population
-			List<int[]> population = popInit.initPopulation(sizePop, 100 /* //TODO */);
+			List<int[]> population = popInit.initPopulation(sizePop, rTSP.getDimension());
 
 			int i = 0;
 			while (i <= 1000000 || noNewGeneration == currentNoNewGeneration) {
