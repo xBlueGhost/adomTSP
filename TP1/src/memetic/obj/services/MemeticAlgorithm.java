@@ -3,6 +3,7 @@ package memetic.obj.services;
 import java.util.List;
 
 import glouton.exception.RandomTSPException;
+import glouton.obj.RandomTSP;
 import glouton.obj.TSPResult;
 import glouton.obj.services.RandomTSP.Evaluate;
 import hillclimbing.obj.services.HillClimbing;
@@ -17,6 +18,7 @@ public class MemeticAlgorithm {
 	private PopulationInitialization popInit;
 	private Crossover crossover;
 	private HillClimbing hillClimbing;
+	private RandomTSP rTSP;
 
 	public MemeticAlgorithm(PopulationInitialization popInit, Crossover crossover) {
 		super();
@@ -26,46 +28,62 @@ public class MemeticAlgorithm {
 
 	public TSPResult doAlgo(int sizePop) throws RandomTSPException {
 		try {
+			int noNewGeneration = 25;
+			int currentNoNewGeneration = 0;
 			// init population
 			List<int[]> population = popInit.initPopulation(sizePop, 100 /* //TODO */);
 
 			int i = 0;
-			while (i <= 50) {
+			while (i <= 1000000 || noNewGeneration == currentNoNewGeneration) {
 				// choose p1 p2
-				int rand1 = 0, rand2 = 0;
-				while (rand1 == rand2) {
-					rand1 = Method.getRandomNumberInRange(0, population.size() - 1);
-					rand2 = Method.getRandomNumberInRange(0, population.size() - 1);
-				}
-				int[] p1 = population.get(rand1);
-				int[] p2 = population.get(rand2);
+				int[][] ps = bestParents(population);
+				int[] p1 = ps[0];
+				int[] p2 = ps[1];
 
 				// create e
-				int rand3 = 0, rand4 = 0;
-				while (rand3 == rand4 || rand3 >= rand4) {
-					rand3 = Method.getRandomNumberInRange(0, 99 /* //TODO */);
-					rand4 = Method.getRandomNumberInRange(0, 99 /* //TODO */);
+				int rand1 = 0, rand2 = 0;
+				while (rand1 == rand2 || rand1 >= rand2) {
+					rand1 = Method.getRandomNumberInRange(0, rTSP.getDimension()-1);
+					rand2 = Method.getRandomNumberInRange(0, rTSP.getDimension()-1);
 				}
-				int[] e = crossover.doCrossover(rand3, rand4, p1, p2);
+				int[] e = crossover.doCrossover(rand1, rand2, p1, p2);
 
-				// TODO hillClimbing to e
+				// hillClimbing to e
 				TSPResult result = hillClimbing.doAlgo(e);
 
-				// TODO insert e in population
+				// insert e in population
 				population.add(result.getPath());
+
+				// evaluate
+				int cost = 0;
+				int[] path = null;
+				for (int[] is : population) {
+					int tmp = Evaluate.eval(rTSP, is);
+					if (cost == 0 || cost < tmp) {
+						cost = tmp;
+						path = is;
+					}
+				}
+				if(cost == result.getCost()) {
+					currentNoNewGeneration++;
+					population.remove(result.getPath());
+				} else {
+					currentNoNewGeneration = 0;
+					population.remove(path);
+				}
 				i++;
 			}
 			// evaluate
-			int result = 0;
+			int cost = 0;
 			int[] path = null;
 			for (int[] is : population) {
-				int tmp = Evaluate.eval(hillClimbing.getrTSP(), is);
-				if (result == 0 || result < tmp) {
-					result = tmp;
+				int tmp = Evaluate.eval(rTSP, is);
+				if (cost == 0 || cost > tmp) {
+					cost = tmp;
 					path = is;
 				}
 			}
-			return new TSPResult(path, result);
+			return new TSPResult(path, cost);
 		} catch (PopulationInitializationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,6 +92,30 @@ public class MemeticAlgorithm {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	private int[][] bestParents(List<int[]> population) throws RandomTSPException {
+		int[] p1 = null;
+		int[] p2 = null;
+		int tmp1 = 0;
+		int tmp2 = 0;
+		for (int[] is : population) {
+			tmp2 = Evaluate.eval(rTSP, is);
+			if (tmp1 == 0 || tmp1 < tmp2) {
+				tmp1 = tmp2;
+				p1 = is;
+			}
+		}
+		tmp1 = 0;
+		tmp2 = 0;
+		for (int[] is : population) {
+			tmp2 = Evaluate.eval(rTSP, is);
+			if ((tmp1 == 0 || tmp1 < tmp2) && !is.equals(p1)) {
+				tmp1 = tmp2;
+				p2 = is;
+			}
+		}
+		return new int[][] { p1, p2 };
 	}
 
 }
