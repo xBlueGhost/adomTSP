@@ -1,0 +1,69 @@
+[INFO] : Number line count in file randomA100.tsp = 5057
+[INFO] : Number line count in file randomB100.tsp = 5057
+[INFO] : Number line count in file randomC100.tsp = 5057
+[INFO] : Number line count in file randomD100.tsp = 5057
+[INFO] : Number line count in file randomE100.tsp = 5057
+[INFO] : Number line count in file randomF100.tsp = 5057
+------------------------------------------------------------
+Question 2
+------------------------------------------------------------
+randomA100.tsp : 
+- SWAP : 219960
+- TWOOPT : 219960
+randomB100.tsp : 
+- SWAP : 201986
+- TWOOPT : 201986
+randomC100.tsp : 
+- SWAP : 213232
+- TWOOPT : 213232
+randomD100.tsp : 
+- SWAP : 213961
+- TWOOPT : 213961
+randomE100.tsp : 
+- SWAP : 228290
+- TWOOPT : 228290
+randomF100.tsp : 
+- SWAP : 223426
+- TWOOPT : 223426
+------------------------------------------------------------
+Question 3
+------------------------------------------------------------
+randomA100.tsp : 
+- RANDOM : 219960
+- CONSTRUCTIVE-HEURISTIC(50) : 23147
+randomB100.tsp : 
+- RANDOM : 201986
+- CONSTRUCTIVE-HEURISTIC(50) : 19817
+randomC100.tsp : 
+- RANDOM : 213232
+- CONSTRUCTIVE-HEURISTIC(50) : 21169
+randomD100.tsp : 
+- RANDOM : 213961
+- CONSTRUCTIVE-HEURISTIC(50) : 21870
+randomE100.tsp : 
+- RANDOM : 228290
+- CONSTRUCTIVE-HEURISTIC(50) : 21590
+randomF100.tsp : 
+- RANDOM : 223426
+- CONSTRUCTIVE-HEURISTIC(50) : 19346
+------------------------------------------------------------
+Question 4
+------------------------------------------------------------
+randomA100.tsp : 
+- FIRST : 219960
+- BEST : 219960
+randomB100.tsp : 
+- FIRST : 201986
+- BEST : 205499
+randomC100.tsp : 
+- FIRST : 213232
+- BEST : 213232
+randomD100.tsp : 
+- FIRST : 213961
+- BEST : 216705
+randomE100.tsp : 
+- FIRST : 228290
+- BEST : 228290
+randomF100.tsp : 
+- FIRST : 223426
+- BEST : 223426
