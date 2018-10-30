@@ -1,0 +1,105 @@
+[INFO] : Number line count in file randomA100.tsp = 5057
+[INFO] : Number line count in file randomB100.tsp = 5057
+[INFO] : Number line count in file randomC100.tsp = 5057
+[INFO] : Number line count in file randomD100.tsp = 5057
+[INFO] : Number line count in file randomE100.tsp = 5057
+[INFO] : Number line count in file randomF100.tsp = 5057
+------------------------------------------------------------
+Question 2
+------------------------------------------------------------
+randomA100.tsp : 
+- RANDOM_POPULATION : 179005
+- CONSTRUCTIVEHEURISTIC_POPULATION : 17682
+randomB100.tsp : 
+- RANDOM_POPULATION : 188069
+- CONSTRUCTIVEHEURISTIC_POPULATION : 14163
+randomC100.tsp : 
+- RANDOM_POPULATION : 177137
+- CONSTRUCTIVEHEURISTIC_POPULATION : 16597
+randomD100.tsp : 
+- RANDOM_POPULATION : 181532
+- CONSTRUCTIVEHEURISTIC_POPULATION : 14784
+randomE100.tsp : 
+- RANDOM_POPULATION : 188910
+- CONSTRUCTIVEHEURISTIC_POPULATION : 14917
+randomF100.tsp : 
+- RANDOM_POPULATION : 183887
+- CONSTRUCTIVEHEURISTIC_POPULATION : 15216
+------------------------------------------------------------
+Question 3
+------------------------------------------------------------
+randomA100.tsp : 
+- CROSSOVER 5-10 : 17502
+randomA100.tsp : 
+- CROSSOVER 20-30 : 17502
+randomA100.tsp : 
+- CROSSOVER 30-55 : 17502
+randomA100.tsp : 
+- CROSSOVER 25-75 : 17502
+randomA100.tsp : 
+- CROSSOVER 0-99 : 17502
+randomB100.tsp : 
+- CROSSOVER 5-10 : 14163
+randomB100.tsp : 
+- CROSSOVER 20-30 : 14163
+randomB100.tsp : 
+- CROSSOVER 30-55 : 14486
+randomB100.tsp : 
+- CROSSOVER 25-75 : 14163
+randomB100.tsp : 
+- CROSSOVER 0-99 : 15582
+randomC100.tsp : 
+- CROSSOVER 5-10 : 16597
+randomC100.tsp : 
+- CROSSOVER 20-30 : 18485
+randomC100.tsp : 
+- CROSSOVER 30-55 : 16597
+randomC100.tsp : 
+- CROSSOVER 25-75 : 18293
+randomC100.tsp : 
+- CROSSOVER 0-99 : 16597
+randomD100.tsp : 
+- CROSSOVER 5-10 : 14851
+randomD100.tsp : 
+- CROSSOVER 20-30 : 14784
+randomD100.tsp : 
+- CROSSOVER 30-55 : 14784
+randomD100.tsp : 
+- CROSSOVER 25-75 : 14851
+randomD100.tsp : 
+- CROSSOVER 0-99 : 14784
+randomE100.tsp : 
+- CROSSOVER 5-10 : 14917
+randomE100.tsp : 
+- CROSSOVER 20-30 : 14917
+randomE100.tsp : 
+- CROSSOVER 30-55 : 16421
+randomE100.tsp : 
+- CROSSOVER 25-75 : 14917
+randomE100.tsp : 
+- CROSSOVER 0-99 : 14917
+randomF100.tsp : 
+- CROSSOVER 5-10 : 15216
+randomF100.tsp : 
+- CROSSOVER 20-30 : 15216
+randomF100.tsp : 
+- CROSSOVER 30-55 : 15216
+randomF100.tsp : 
+- CROSSOVER 25-75 : 15216
+randomF100.tsp : 
+- CROSSOVER 0-99 : 15316
+------------------------------------------------------------
+Question 5
+------------------------------------------------------------
+randomA100.tsp : 
+- MEMETIC : 17502
+randomB100.tsp : 
+- MEMETIC : 15582
+randomC100.tsp : 
+- MEMETIC : 16597
+randomD100.tsp : 
+- MEMETIC : 14784
+randomE100.tsp : 
+- MEMETIC : 14917
+randomF100.tsp : 
+- MEMETIC : 15216

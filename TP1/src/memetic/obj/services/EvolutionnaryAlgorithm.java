@@ -42,12 +42,18 @@ public abstract class EvolutionnaryAlgorithm {
 				int[] p2 = ps[1];
 
 				// create e
-				int rand1 = 0, rand2 = 0;
-				while (rand1 == rand2 || rand1 >= rand2) {
-					rand1 = Method.getRandomNumberInRange(0, rTSP.getDimension()-1);
-					rand2 = Method.getRandomNumberInRange(0, rTSP.getDimension()-1);
+				int[] e;
+				if(crossover.getIndex1() == null || crossover.getIndex2() == null) {
+					int rand1 = 0, rand2 = 0;
+					while (rand1 == rand2 || rand1 >= rand2) {
+						rand1 = Method.getRandomNumberInRange(0, rTSP.getDimension()-1);
+						rand2 = Method.getRandomNumberInRange(0, rTSP.getDimension()-1);
+					}
+					e = crossover.doCrossover(rand1, rand2, p1, p2);
+				} else {
+					e = crossover.doCrossover(crossover.getIndex1(), crossover.getIndex2(), p1, p2);
 				}
-				int[] e = crossover.doCrossover(rand1, rand2, p1, p2);
+				
 
 				// hillClimbing to e
 				TSPResult result = template(e);

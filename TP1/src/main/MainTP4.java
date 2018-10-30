@@ -17,17 +17,27 @@ public class MainTP4 {
 			path[i] = i;
 		}
 		Method.shuffleArray(path);
-		File f1 = new File("randomA100.tsp");
-		RandomTSP a = ReadFile.readFile(f1);
-		File f2 = new File("randomB100.tsp");
-		RandomTSP b = ReadFile.readFile(f2);
+		// GET FILE TSP
+		File fa = new File("randomA100.tsp");
+		File fb = new File("randomB100.tsp");
+		File fc = new File("randomC100.tsp");
+		File fd = new File("randomD100.tsp");
+		File fe = new File("randomE100.tsp");
+		File ff = new File("randomF100.tsp");
+
+		RandomTSP a = ReadFile.readFile(fa);
+		RandomTSP b = ReadFile.readFile(fb);
+		RandomTSP c = ReadFile.readFile(fc);
+		RandomTSP d = ReadFile.readFile(fd);
+		RandomTSP e = ReadFile.readFile(fe);
+		RandomTSP f = ReadFile.readFile(ff);
 		try {
 			Point p = MultiEval.Eval(path, a, b);
 			System.out.println("RandomA/RandomB with random path.");
 			System.out.println(p);
-		} catch (RandomTSPException e) {
-			e.printStackTrace();
+		} catch (RandomTSPException ex) {
+			ex.printStackTrace();
 		}
 	}
-	
+
 }

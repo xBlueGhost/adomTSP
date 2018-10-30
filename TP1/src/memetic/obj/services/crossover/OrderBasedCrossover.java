@@ -5,7 +5,7 @@ import java.util.List;
 
 import memetic.exception.CrossoverException;
 
-public class OrderBasedCrossover implements Crossover {
+public class OrderBasedCrossover extends Crossover {
 	
 	private void checkConditions(int index1, int index2, int[] p1, int[] p2) throws CrossoverException {
 		if (p1.length != p2.length) {
@@ -58,5 +58,5 @@ public class OrderBasedCrossover implements Crossover {
 
 		return result;
 	}
-
+	
 }
