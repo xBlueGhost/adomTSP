@@ -1,5 +1,12 @@
 package glouton.obj;
 
+/**
+ * A java object for the content of a tsp file.
+ * 
+ * @author dessenne
+ *
+ */
+
 public class RandomTSP {
 
 	private String fileName;
@@ -13,8 +20,7 @@ public class RandomTSP {
 	private int[][] edgeWeightSection;
 
 	public RandomTSP(String fileName, String name, Integer n, Integer seed, String type, Integer dimension,
-			String edgeWeightType,
-			String edgeWeightFormat) {
+			String edgeWeightType, String edgeWeightFormat) {
 		super();
 		this.fileName = fileName;
 		this.name = name;

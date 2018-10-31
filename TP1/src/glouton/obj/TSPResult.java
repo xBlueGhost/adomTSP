@@ -1,5 +1,12 @@
 package glouton.obj;
 
+/**
+ * A java object containing a path and his cost. Used by algorithm to save the
+ * result.
+ * 
+ * @author dessenne
+ *
+ */
 public class TSPResult {
 
 	private int[] path;

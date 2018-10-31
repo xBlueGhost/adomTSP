@@ -4,7 +4,14 @@ import glouton.exception.ConstructiveHeuristicsAlgorithmException;
 import glouton.obj.TSPResult;
 import glouton.obj.RandomTSP;
 
-public class NearestNeighborAlgorithm implements ConstructiveHeuristicsAlgorithm{
+/**
+ * Algorithme du plus proche voisin.
+ * 
+ * @author dessenne
+ *
+ */
+
+public class NearestNeighborAlgorithm implements ConstructiveHeuristicsAlgorithm {
 
 	/*
 	 * Question 3.1 : Développer l’heuristique constructive du plus proche voisin
@@ -13,8 +20,7 @@ public class NearestNeighborAlgorithm implements ConstructiveHeuristicsAlgorithm
 	 * rapport à une solution aléatoire ? Le choix de la ville initiale a-t-il un
 	 * impact sur les résultats obtenus ?
 	 */
-	public TSPResult doAlgorithm(RandomTSP rTSP, int beginAt)
-			throws ConstructiveHeuristicsAlgorithmException {
+	public TSPResult doAlgorithm(RandomTSP rTSP, int beginAt) throws ConstructiveHeuristicsAlgorithmException {
 		if (beginAt > rTSP.getDimension() - 1) {
 			throw new ConstructiveHeuristicsAlgorithmException("beginAt can't be superior to the RandomTSP dimension.");
 		}

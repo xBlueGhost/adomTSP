@@ -8,8 +8,17 @@ import java.io.IOException;
 
 import glouton.obj.RandomTSP;
 
+/**
+ * Read a .tsp file and save content into a RandomTSP object.
+ * @author dessenne
+ *
+ */
 public class ReadFile {
 
+	/*
+	 * Question 2.1 : Écrire un parseur permettant de lire le fichier d’instance
+	 * passé en paramètre et de construire la matrice de coûts correspondante.
+	 */
 	public static RandomTSP readFile(File f) {
 		String fileName = null;
 		String name = null;

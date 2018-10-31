@@ -1,8 +1,10 @@
 package main;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,14 @@ import utils.Method;
 public class MainTP4 {
 
 	public static void main(String[] args) {
+		try {
+			PrintStream o = new PrintStream(new File("MainTP4.txt"));
+			System.setOut(o);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		int[] path = new int[100];
 		for (int i = 0; i < path.length; i++) {
 			path[i] = i;

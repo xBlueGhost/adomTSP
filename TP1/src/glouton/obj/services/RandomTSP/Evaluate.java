@@ -6,6 +6,12 @@ import glouton.exception.RandomTSPException;
 import glouton.obj.RandomTSP;
 import utils.Method;
 
+/**
+ * Contains method to evaluate a RandomTSP with a path or a random path.
+ * 
+ * @author dessenne
+ *
+ */
 public class Evaluate {
 
 	/**
@@ -36,8 +42,9 @@ public class Evaluate {
 
 			}
 		}
-		//System.out.println(
-		//		"Evaluation for file " + rTSP.getFileName() + " with " + Arrays.toString(cities) + " = " + result);
+		// System.out.println(
+		// "Evaluation for file " + rTSP.getFileName() + " with " +
+		// Arrays.toString(cities) + " = " + result);
 		return result;
 	}
 

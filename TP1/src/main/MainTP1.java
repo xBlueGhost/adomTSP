@@ -52,6 +52,7 @@ public class MainTP1 {
 		
 		System.out.println("------------------------------------------------------------");
 		System.out.println("Question 2.1");
+		System.out.println("------------------------------------------------------------");
 		System.out.println("Matrice randomA100.tsp");
 		DisplayEdgeWeightSection.displayEdgeWeightSection(a);
 		System.out.println("Matrice randomB100.tsp");
@@ -70,6 +71,7 @@ public class MainTP1 {
 
 		System.out.println("------------------------------------------------------------");
 		System.out.println("Question 2.2");
+		System.out.println("------------------------------------------------------------");
 		try {
 			System.out.println("Evaluation A-path1 = " + Evaluate.eval(a, path1));
 			System.out.println("Evaluation A-path2 = " + Evaluate.eval(a, path2));
@@ -90,6 +92,7 @@ public class MainTP1 {
 
 		System.out.println("------------------------------------------------------------");
 		System.out.println("Question 2.3");
+		System.out.println("------------------------------------------------------------");
 		System.out.println("Best result for randomA100 is 10659.");
 		System.out.println("Best result for randomB100 is 9234.");
 		System.out.println("Best result for randomC100 is 9529.");
