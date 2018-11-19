@@ -1,0 +1,36 @@
+[INFO] : Number line count in file randomA100.tsp = 5057
+[INFO] : Number line count in file randomB100.tsp = 5057
+[INFO] : Number line count in file randomC100.tsp = 5057
+[INFO] : Number line count in file randomD100.tsp = 5057
+[INFO] : Number line count in file randomE100.tsp = 5057
+[INFO] : Number line count in file randomF100.tsp = 5057
+------------------------------------------------------------
+Question 2.2
+------------------------------------------------------------
+RandomAB : Point [x=220288.0, y=231118.0]
+RandomCD : Point [x=212447.0, y=235434.0]
+RandomEF : Point [x=228132.0, y=214363.0]
+------------------------------------------------------------
+Question 3.1
+------------------------------------------------------------
+Create file ABPointsOff.txt
+Exec gnuplot -c script.gnu ABPointsOff
+Result available in ABPointsOff.png
+Create file CDPointsOff.txt
+Exec gnuplot -c script.gnu CDPointsOff
+Result available in CDPointsOff.png
+Create file EFPointsOff.txt
+Exec gnuplot -c script.gnu EFPointsOff
+Result available in EFPointsOff.png
+Create file ABPointsOn.txt
+Exec gnuplot -c script.gnu ABPointsOn
+Result available in ABPointsOn.png
+122
+Create file CDPointsOn.txt
+Exec gnuplot -c script.gnu CDPointsOn
+Result available in CDPointsOn.png
+693
+Create file EFPointsOn.txt
+Exec gnuplot -c script.gnu EFPointsOn
+Result available in EFPointsOn.png
+6927

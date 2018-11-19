@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import glouton.exception.RandomTSPException;
 import glouton.obj.RandomTSP;
+import multi.obj.MultiTSP;
 import utils.Method;
 
 /**

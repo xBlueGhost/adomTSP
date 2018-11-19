@@ -1,28 +1,22 @@
 package main;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 import glouton.exception.RandomTSPException;
 import glouton.obj.RandomTSP;
 import glouton.obj.services.RandomTSP.ReadFile;
 import multi.obj.Point;
-import multi.obj.services.eval.MultiEval;
-import multi.obj.services.filter.OffLine;
-import optimtsp.Agregat;
-import utils.Method;
+import optimtsp.obj.services.approach.ScalarApproach;
 
 public class MainTP5 {
 	
 	public static void main(String[] args) {
 //		try {
-//			PrintStream o = new PrintStream(new File("MainTP4.txt"));
+//			PrintStream o = new PrintStream(new File("MainTP5.txt"));
 //			System.setOut(o);
 //		} catch (FileNotFoundException e1) {
 //			// TODO Auto-generated catch block
@@ -49,28 +43,18 @@ public class MainTP5 {
 		System.out.println("------------------------------------------------------------");
 		
 		try {
-			doScalar(a, 0.8f, 'A', b, 0.2f, 'B');
-			doScalar(c, 0.8f, 'C', d, 0.2f, 'D');
-			doScalar(e, 0.8f, 'E', f, 0.2f, 'F');
+			doScalar(a, 'A', b, 'B');
+			doScalar(c, 'C', d, 'D');
+			doScalar(e, 'E', f, 'F');
 		} catch (RandomTSPException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	}
 
-	private static void doScalar(RandomTSP a, float x, Character ca, RandomTSP b, float y, Character cb) throws RandomTSPException {
-		List<Point> ps = new ArrayList<>();
-		float ax = 0f;
-		float by = 10f;
-		for (int i = 0; i < 100; i++) {
-			//for (int j = 0; j < 500; j++) {
-				ps.add(Agregat.agreg(a, b, Agregat.agregTSP(ax, by, a, b)));
-			//}
-			ax = ax+0.1f;
-			by = by-0.1f;
-		}
-//		OffLine off = new OffLine();
-//		List<Point> rps = off.doStrategy(ps);
+	private static void doScalar(RandomTSP a, Character ca, RandomTSP b, Character cb) throws RandomTSPException {
+
+		List<Point> rps = ScalarApproach.doApproach(a, b);
 
 		// WRITE FILE
 		System.out.println("Create file "+ca+cb+"ScalarPoints.txt");
@@ -80,7 +64,7 @@ public class MainTP5 {
 			PrintWriter printWriter = new PrintWriter(fileWriter);
 			printWriter.print("# "+ca+cb+"ScalarPoints.txt\n");
 			printWriter.print("# x\ty\n");
-			for (Point point : /*r*/ps) {
+			for (Point point : rps) {
 				printWriter.print(point.getX()+"\t"+point.getY()+"\n");
 			}
 			printWriter.close();

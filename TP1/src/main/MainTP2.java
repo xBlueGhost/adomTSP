@@ -20,13 +20,13 @@ import utils.Method;
 public class MainTP2 {
 
 	public static void main(String[] args) {
-		try {
-			PrintStream o = new PrintStream(new File("MainTP2.txt"));
-			System.setOut(o); 
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
+//		try {
+//			PrintStream o = new PrintStream(new File("MainTP2.txt"));
+//			System.setOut(o); 
+//		} catch (FileNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} 
 		
 		// GET FILE TSP
 		File fa = new File("randomA100.tsp");
@@ -114,6 +114,12 @@ public class MainTP2 {
 
 		System.out.println("------------------------------------------------------------");
 
+		Swaping swap = new Swaping();
+		TwoOpt twoopt = new TwoOpt();
+		
+		System.out.println(swap.getNeighborhood(new RandomPathInit().initPathAsArray(100)).size());
+		System.out.println(twoopt.getNeighborhood(new RandomPathInit().initPathAsArray(100)).size());
+		
 		TSPResult res1A = hcASwapFirst.doAlgo(path);
 		TSPResult res2A = hcATwoOptFirst.doAlgo(path);
 		TSPResult res1B = hcBSwapFirst.doAlgo(path);

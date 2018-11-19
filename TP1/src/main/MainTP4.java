@@ -15,6 +15,7 @@ import glouton.obj.services.RandomTSP.ReadFile;
 import multi.obj.Point;
 import multi.obj.services.eval.MultiEval;
 import multi.obj.services.filter.OffLine;
+import multi.obj.services.filter.OnLine;
 import utils.Method;
 
 public class MainTP4 {
@@ -65,6 +66,17 @@ public class MainTP4 {
 			doOffline(path, a, 'A', b, 'B');
 			doOffline(path, c, 'C', d, 'D');
 			doOffline(path, e, 'E', f, 'F');
+			
+			long debut;
+			debut = System.currentTimeMillis();
+			doOnline(path, a, 'A', b, 'B',10000);
+			System.out.println(System.currentTimeMillis()-debut);
+			debut = System.currentTimeMillis();
+			doOnline(path, c, 'C', d, 'D',100000);
+			System.out.println(System.currentTimeMillis()-debut);
+			debut = System.currentTimeMillis();
+			doOnline(path, e, 'E', f, 'F',1000000);
+			System.out.println(System.currentTimeMillis()-debut);
 
 		} catch (RandomTSPException ex) {
 			ex.printStackTrace();
@@ -81,20 +93,53 @@ public class MainTP4 {
 		List<Point> rps = off.doStrategy(ps);
 
 		// WRITE FILE
-		System.out.println("Create file "+ca+cb+"Points.txt");
-		File r = new File(ca.toString()+cb.toString()+"Points.txt");
+		System.out.println("Create file "+ca+cb+"PointsOff.txt");
+		File r = new File(ca.toString()+cb.toString()+"PointsOff.txt");
 		try {
 			FileWriter fileWriter = new FileWriter(r);
 			PrintWriter printWriter = new PrintWriter(fileWriter);
-			printWriter.print("# "+ca+cb+"Points.txt\n");
+			printWriter.print("# "+ca+cb+"PointsOff.txt\n");
 			printWriter.print("# x\ty\n");
 			for (Point point : rps) {
 				printWriter.print(point.getX()+"\t"+point.getY()+"\n");
 			}
 			printWriter.close();
-			System.out.println("Exec gnuplot -c script.gnu "+ca+cb+"Points");
-			Runtime.getRuntime().exec("gnuplot -c script.gnu "+ca+cb+"Points");
-			System.out.println("Result available in "+ca+cb+"Points.png");
+			System.out.println("Exec gnuplot -c script.gnu "+ca+cb+"PointsOff");
+			Runtime.getRuntime().exec("gnuplot -c script.gnu "+ca+cb+"PointsOff");
+			System.out.println("Result available in "+ca+cb+"PointsOff.png");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	private static void doOnline(int[] path, RandomTSP a, Character ca, RandomTSP b, Character cb, int nb) throws RandomTSPException {
+		List<Point> ps = new ArrayList<>();
+		for (int i = 0; i < nb; i++) {
+			Method.shuffleArray(path);
+			ps.add(MultiEval.Eval(path, a, b));
+		}
+		OnLine on = new OnLine();
+		List<Point> rps = new ArrayList<>();
+		for (Point point : ps) {
+			rps = on.doStrategy(point);
+		}
+
+		// WRITE FILE
+		System.out.println("Create file "+ca+cb+"PointsOn.txt");
+		File r = new File(ca.toString()+cb.toString()+"PointsOn.txt");
+		try {
+			FileWriter fileWriter = new FileWriter(r);
+			PrintWriter printWriter = new PrintWriter(fileWriter);
+			printWriter.print("# "+ca+cb+"PointsOn.txt\n");
+			printWriter.print("# x\ty\n");
+			for (Point point : rps) {
+				printWriter.print(point.getX()+"\t"+point.getY()+"\n");
+			}
+			printWriter.close();
+			System.out.println("Exec gnuplot -c script.gnu "+ca+cb+"PointsOn");
+			Runtime.getRuntime().exec("gnuplot -c script.gnu "+ca+cb+"PointsOn");
+			System.out.println("Result available in "+ca+cb+"PointsOn.png");
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
